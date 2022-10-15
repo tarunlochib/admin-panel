@@ -21,8 +21,8 @@ class RegisterController extends Controller
         // dd($inputs);
     //    Validate
         $validator = Validator::make($inputs, [
-            'name' => 'required|string|max:255',
-            'email'=> 'required|email|',
+            'name' => 'required|string|max:255|unique:users,name',
+            'email'=> 'required|email|unique:users,email',
             'password'=>'required'
         ]);
 
@@ -33,7 +33,7 @@ class RegisterController extends Controller
             return response()->json([
                 'code' => 422,
                 'data' => [],
-                'errors' => $validator->errors()->message()
+                'errors' => $validator->errors()->messages()
             ]);
         }
         
@@ -43,6 +43,7 @@ class RegisterController extends Controller
             'password'=>Hash::make($inputs['password']),
         ]);
 
-        return redirect('/');
+
+        return redirect('/')->with('success', 'your account has been created');
     }
 }

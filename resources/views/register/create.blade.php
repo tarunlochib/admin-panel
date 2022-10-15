@@ -17,24 +17,32 @@
                     <div>
                         <label class="block" for="name">Name</label>
                                 <input type="text" id="name" name="name" placeholder="Name"
-                                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+                                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                    value="{{ old('name') }}" required>
+
+                                    @error('name')
+                                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    @enderror
                     </div>
                     <div class="mt-4">
                         <label class="block" for="email">Email</label>
                                 <input type="email" id="email" name="email" placeholder="Email"
-                                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+                                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                    value="{{ old('name') }}" required>
+
+                                    @error('email')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    @enderror
                     </div>
                     <div class="mt-4">
                         <label class="block">Password</label>
                                 <input type="password" id="password" name="password" placeholder="Password"
-                                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+                                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" required>
+                                    
+                                    @error('password')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    @enderror
                     </div>
-                    {{-- <div class="mt-4">
-                        <label class="block">Confirm Password<label>
-                                <input type="password" id="password" placeholder="Password"
-                                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
-                    </div> --}}
-                    {{-- <span class="text-xs text-red-400">Password must be same!</span> --}}
                     <div class="flex">
                         <button class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900" type="submit">Create
                             Account</button>
