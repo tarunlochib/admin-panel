@@ -11,6 +11,8 @@
 
         <!-- Styles -->
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+        
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
@@ -18,6 +20,21 @@
         </style>
     </head>
     <body class="antialiased">
+
+        <nav class="md:flex md:justify-between md:items-center">
+
+            <div>
+                <a href="/">
+                    <img src="/images/logo.png" alt="admin panel logo" width="165" height="16">
+                </a>
+            </div>
+
+            <div class="mt-8 md:mt-0">
+                <a href="/register" class="text-xs font-bold uppercase">Register</a>
+            </div>
+        
+        </nav>
+
         @if(session()->has('success'))
             <div class="fixed  bg-blue-500 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm">
                 <p>{{ session('success') }}</p>
