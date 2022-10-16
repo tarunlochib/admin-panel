@@ -22,16 +22,29 @@
     <body class="antialiased">
 
         <nav class="md:flex md:justify-between md:items-center">
-
+            
             <div>
                 <a href="/">
                     <img src="/images/logo.png" alt="admin panel logo" width="165" height="16">
                 </a>
             </div>
+           
+            <div class="mt-8 md:mt-0 flex items-center">
+                @auth
+                    <span class="text-xs font-bold uppercase">welcome, {{ auth()->user()->name }}</span>
 
-            <div class="mt-8 md:mt-0">
-                <a href="/register" class="text-xs font-bold uppercase">Register</a>
+                    <form method="POST" action="/logout" class="font-semibold text-xs text-blue-500 ml-6">
+                        @csrf
+
+                        <button type="submit">Log Out</button>
+
+                    </form>
+                @else
+                    <a href="/register" class="text-xs font-bold uppercase">Register</a>
+                    <a href="/login" class="ml-6 text-xs font-bold uppercase">Log In</a>
+                @endguest
             </div>
+            
         
         </nav>
 

@@ -43,6 +43,8 @@ class RegisterController extends Controller
             'password'=>Hash::make($inputs['password']),
         ]);
 
+        // Log the user in 
+        auth()->login($user);
 
         return redirect('/')->with('success', 'your account has been created');
     }
