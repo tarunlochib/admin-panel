@@ -59,13 +59,6 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user-> email }}</td>
-                    <td>
-                        <a href="">Edit</a>
-                    <form>
-                    @csrf
-                    <button> Delete </button>
-                    </form>
-                    </tr>
                     @endforeach
             </table>
             
