@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\RegisterController;
-// use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +26,5 @@ Route::post('/logout', [AuthController::class, 'destroy'])->middleware('auth');
 
 Route::get('/login', [AuthController::class, 'showLoginPage'])->middleware('guest');
 Route::post('/login', [AuthController::class, 'login'])->middleware('guest');
+Route::get('/', [UserController::class, 'show']);
+

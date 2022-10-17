@@ -44,9 +44,33 @@
                     <a href="/login" class="ml-6 text-xs font-bold uppercase">Log In</a>
                 @endauth
             </div>
-            
-        
+
         </nav>
+
+        <section>
+            <table>
+                <tr>
+                    <th>Employee Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+                @foreach($users as $user)
+                <tr>
+                    <td>{{ $user->id }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user-> email }}</td>
+                    <td>
+                        <a href="">Edit</a>
+                    <form>
+                    @csrf
+                    <button> Delete </button>
+                    </form>
+                    </tr>
+                    @endforeach
+            </table>
+            
+
+        </section>
 
         @if(session()->has('success'))
             <div class="fixed  bg-blue-500 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm">
