@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +27,10 @@ Route::post('/logout', [AuthController::class, 'destroy'])->middleware('auth');
 
 Route::get('/login', [AuthController::class, 'showLoginPage'])->middleware('guest');
 Route::post('/login', [AuthController::class, 'login'])->middleware('guest');
+
+Route::get('/user/create', [EmployeeController::class, 'create']);
+Route::post('/user/create', [EmployeeController::class, 'store']);
+
 Route::get('/', [UserController::class, 'show']);
+
 

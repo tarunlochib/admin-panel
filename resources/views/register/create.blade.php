@@ -33,6 +33,16 @@
                                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                                     @enderror
                     </div>
+                    <div>
+                        <label class="block" for="employee_id">Employee ID</label>
+                                <input type="text" id="employee_id" name="employee_id" placeholder="Employee ID"
+                                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                    value="{{ old('employee_id') }}" required>
+
+                                    @error('employee_id')
+                                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    @enderror
+                    </div>
                     <div class="mt-4">
                         <label class="block" for="email">Email</label>
                                 <input type="email" id="email" name="email" placeholder="Email"
